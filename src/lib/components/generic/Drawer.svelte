@@ -8,7 +8,7 @@
 		target?: string;
 	}
 
-	let { navigation = [] }: { navigation?: NavLink[] } = $props();
+	let { title = '', navigation = [] }: { title: string; navigation?: NavLink[] } = $props();
 	let open = $state(false);
 
 	function toggle() {
@@ -29,7 +29,7 @@
 >
 	<!-- Header -->
 	<header class="flex items-center justify-between">
-		<h2 class="h3">mistahuman's GitHub Pages</h2>
+		<h2 class="h3">{title}</h2>
 		<button class="btn-icon" onclick={toggle}>
 			<X size={20} />
 		</button>

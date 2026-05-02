@@ -3,9 +3,14 @@
 	import GitHubIcon from '$lib/components/icons/GitHubIcon.svelte';
 	import Drawer from './Drawer.svelte';
 	import Lightswitch from './Lightswitch.svelte';
+	import ThemeSwitch from './ThemeSwitch.svelte';
 	import Logo from '../icons/Logo.svelte';
 
-	const coreLinks = [{ href: resolve('/'), label: 'home', target: '_self' }];
+	let titleDrawer = 'menu';
+	const coreLinks = [
+		{ href: resolve('/'), label: 'home', target: '_self' },
+		{ href: resolve('/playground'), label: 'playground', target: '_self' }
+	];
 </script>
 
 <header
@@ -17,7 +22,7 @@
 		<!-- Left -->
 		<div class="flex items-stretch justify-start gap-4">
 			<!-- Mobile Nav Drawer -->
-			<Drawer navigation={coreLinks} />
+			<Drawer title={titleDrawer} navigation={coreLinks} />
 			<!-- Logo -->
 			<a class="hidden xl:inline-block" href={resolve('/')} title="SvelteKit Skeleton Starter">
 				<Logo width="32" height="32" />
@@ -37,6 +42,7 @@
 		<div class="flex items-stretch justify-end gap-2">
 			<!-- Mode and Theme -->
 			<Lightswitch />
+			<ThemeSwitch />
 			<!-- Divider -->
 			<span class="border-r border-surface-200-800"></span>
 			<!-- Social -->
