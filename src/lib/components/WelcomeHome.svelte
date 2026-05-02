@@ -13,14 +13,14 @@
 	<!-- Hero Text -->
 	<div class="space-y-4 self-center text-center">
 		<h1 class="heading-font-family text-3xl font-bold md:text-4xl xl:text-balance">
-			mistahuman's template svelte-skeleton
+			mistahuman's sveltekit-skeleton-starter
 		</h1>
 		<p class="xl:text-balance">
-			For building <strong class="text-primary-900-100">github pages</strong>
-			<u>easily</u>.
+			A <strong class="text-primary-900-100">SvelteKit + Skeleton UI</strong> template for building
+			web apps <u>quickly</u>.
 		</p>
 		<a
-			href="https://github.com/mistahuman/template-astro-svelte-skeleton"
+			href="https://github.com/mistahuman/sveltekit-skeleton-starter"
 			class="btn preset-tonal-primary"
 		>
 			<span>visit code</span>

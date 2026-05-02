@@ -19,7 +19,7 @@
 			<!-- Mobile Nav Drawer -->
 			<Drawer navigation={coreLinks} />
 			<!-- Logo -->
-			<a class="hidden xl:inline-block" href={resolve('/')} title="Mistahuman">
+			<a class="hidden xl:inline-block" href={resolve('/')} title="SvelteKit Skeleton Starter">
 				<Logo width="32" height="32" />
 			</a>
 			<div class="hidden items-center xl:flex">

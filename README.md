@@ -1,21 +1,21 @@
-# sv
+# SvelteKit Skeleton Starter
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A starter template for building web apps with [SvelteKit](https://kit.svelte.dev) and [Skeleton UI](https://skeleton.dev).
 
-## Creating a project
+## Getting started
 
-If you're seeing this, you've probably already done this step. Congrats!
+Clone this repository and install dependencies:
 
 ```sh
-# create a new project
-npx sv create my-app
+git clone https://github.com/mistahuman/sveltekit-skeleton-starter
+cd sveltekit-skeleton-starter
+npm install
 ```
 
-To recreate this project with the same configuration:
+Or recreate it from scratch with the same configuration:
 
 ```sh
-# recreate this project
-npx sv@0.15.2 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:auto" mcp="ide:claude-code+setup:remote" --install npm my-skeleton-app
+npx sv@0.15.2 create --template minimal --types ts --add prettier eslint tailwindcss="plugins:typography,forms" sveltekit-adapter="adapter:auto" mcp="ide:claude-code+setup:remote" --install npm sveltekit-skeleton-starter
 ```
 
 ## Developing

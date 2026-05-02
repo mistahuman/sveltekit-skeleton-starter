@@ -9,6 +9,9 @@
 				built by <a class="underline" href="https://www.github.com/mistahuman" target="_blank"
 					>mistahuman</a
 				>.
+				<!-- built with <a class="underline" href="https://skeleton.dev" target="_blank">Skeleton UI</a>
+				+
+				<a class="underline" href="https://kit.svelte.dev" target="_blank">SvelteKit</a>. -->
 			</p>
 		</div>
 		<!-- Social -->

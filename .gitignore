@@ -1,5 +1,8 @@
 node_modules
 
+# Husky internals
+.husky/_
+
 # Output
 .output
 .vercel
