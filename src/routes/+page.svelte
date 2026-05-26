@@ -1,6 +1,5 @@
 <script lang="ts">
 	import WelcomeHome from '$lib/components/WelcomeHome.svelte';
-
 	import Card from '$lib/components/generic/Card.svelte';
 
 	const stack = [

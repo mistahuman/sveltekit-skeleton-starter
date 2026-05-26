@@ -9,6 +9,7 @@
 	let titleDrawer = 'menu';
 	const coreLinks = [
 		{ href: resolve('/'), label: 'home', target: '_self' },
+		{ href: resolve('/exampleitems'), label: 'exampleitems', target: '_self' },
 		{ href: resolve('/playground'), label: 'playground', target: '_self' }
 	];
 </script>
