@@ -22,8 +22,10 @@ export interface UpdateExampleItem {
 	description?: string;
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-	const res = await fetch(`${BASE_URL}${path}`, {
+type FetchFn = typeof fetch;
+
+async function request<T>(path: string, init?: RequestInit, fetchFn: FetchFn = fetch): Promise<T> {
+	const res = await fetchFn(`${BASE_URL}${path}`, {
 		headers: { 'Content-Type': 'application/json', ...init?.headers },
 		...init
 	});
@@ -32,18 +34,16 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 	return res.json();
 }
 
-export const exampleItemsApi = {
-	list: () => request<ExampleItem[]>('/exampleitems/'),
-	get: (id: string) => request<ExampleItem>(`/exampleitems/${id}`),
-	create: (payload: CreateExampleItem) =>
-		request<ExampleItem>('/exampleitems/', {
-			method: 'POST',
-			body: JSON.stringify(payload)
-		}),
-	update: (id: string, payload: UpdateExampleItem) =>
-		request<ExampleItem>(`/exampleitems/${id}`, {
-			method: 'PATCH',
-			body: JSON.stringify(payload)
-		}),
-	delete: (id: string) => request<void>(`/exampleitems/${id}`, { method: 'DELETE' })
-};
+export function createExampleItemsApi(fetchFn?: FetchFn) {
+	return {
+		list: () => request<ExampleItem[]>('/exampleitems/', undefined, fetchFn),
+		get: (id: string) => request<ExampleItem>(`/exampleitems/${id}`, undefined, fetchFn),
+		create: (payload: CreateExampleItem) =>
+			request<ExampleItem>('/exampleitems/', { method: 'POST', body: JSON.stringify(payload) }, fetchFn),
+		update: (id: string, payload: UpdateExampleItem) =>
+			request<ExampleItem>(`/exampleitems/${id}`, { method: 'PATCH', body: JSON.stringify(payload) }, fetchFn),
+		delete: (id: string) => request<void>(`/exampleitems/${id}`, { method: 'DELETE' }, fetchFn)
+	};
+}
+
+export const exampleItemsApi = createExampleItemsApi();
