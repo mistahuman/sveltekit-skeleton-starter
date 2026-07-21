@@ -1,7 +1,9 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import { Palette } from 'lucide-svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
+
+	let { defaultTheme = 'mistahuman-theme' }: { defaultTheme?: string } = $props();
 
 	const themes = [
 		{ id: 'mistahuman-theme', label: 'Mistahuman', emoji: '🧑‍💻' },
@@ -31,14 +33,14 @@
 		{ id: 'wintry', label: 'Wintry', emoji: '❄️' }
 	];
 
-	let current = $state(
-		browser
-			? (document.documentElement.getAttribute('data-theme') ?? 'mistahuman-theme')
-			: 'mistahuman-theme'
-	);
+	// Rendered on the server first, so read the live theme only once mounted.
+	let current = $state('');
+
+	onMount(() => {
+		current = document.documentElement.getAttribute('data-theme') ?? defaultTheme;
+	});
 
 	function setTheme(id: string) {
-		if (!browser) return;
 		document.documentElement.setAttribute('data-theme', id);
 		localStorage.setItem('theme', id);
 		current = id;

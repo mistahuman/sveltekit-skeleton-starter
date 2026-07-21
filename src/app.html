@@ -4,6 +4,8 @@
 		<meta charset="utf-8" />
 		<script>
 			(function () {
+				// Keep in sync with THEME_PICKER in src/lib/config.ts (static HTML cannot import it).
+				const THEME_PICKER = true;
 				try {
 					const storedMode = localStorage.getItem('mode');
 					const preferredMode = window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -11,7 +13,7 @@
 						: 'light';
 					const mode = storedMode ?? preferredMode ?? 'dark';
 					document.documentElement.setAttribute('data-mode', mode);
-					const storedTheme = localStorage.getItem('theme');
+					const storedTheme = THEME_PICKER ? localStorage.getItem('theme') : null;
 					if (storedTheme) document.documentElement.setAttribute('data-theme', storedTheme);
 				} catch (e) {
 					document.documentElement.setAttribute('data-mode', 'dark');

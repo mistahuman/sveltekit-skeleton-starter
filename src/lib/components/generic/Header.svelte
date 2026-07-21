@@ -5,6 +5,7 @@
 	import Lightswitch from './Lightswitch.svelte';
 	import ThemeSwitch from './ThemeSwitch.svelte';
 	import Logo from '../icons/Logo.svelte';
+	import { THEME_PICKER, DEFAULT_THEME } from '$lib/config';
 
 	let titleDrawer = 'menu';
 	const coreLinks = [
@@ -43,7 +44,9 @@
 		<div class="flex items-stretch justify-end gap-2">
 			<!-- Mode and Theme -->
 			<Lightswitch />
-			<ThemeSwitch />
+			{#if THEME_PICKER}
+				<ThemeSwitch defaultTheme={DEFAULT_THEME} />
+			{/if}
 			<!-- Divider -->
 			<span class="border-r border-surface-200-800"></span>
 			<!-- Social -->
