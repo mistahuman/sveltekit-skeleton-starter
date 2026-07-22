@@ -33,6 +33,8 @@
 @import '@skeletonlabs/skeleton/themes/wintry';
 
 @import '../lib/styles/mistahuman-theme.css';
+@import '../lib/styles/terracotta-theme.css';
+@import '../lib/styles/phosphor-theme.css';
 
 @source '../../node_modules/@skeletonlabs/skeleton-svelte/dist';
 
@@ -80,6 +82,8 @@ html {
 /* Inner Page Gradient */
 
 [data-theme='mistahuman-theme'],
+[data-theme='terracotta-theme'],
+[data-theme='phosphor-theme'],
 [data-theme='concord'],
 [data-theme='reign'],
 [data-theme='terminus'],

@@ -6,7 +6,9 @@
 	let { defaultTheme = 'mistahuman-theme' }: { defaultTheme?: string } = $props();
 
 	const themes = [
-		{ id: 'mistahuman-theme', label: 'Mistahuman', emoji: '🧑‍💻' },
+		{ id: 'mistahuman-theme', label: 'Mistahuman', emoji: '🕹️' },
+		{ id: 'terracotta-theme', label: 'Terracotta', emoji: '🏺' },
+		{ id: 'phosphor-theme', label: 'Phosphor', emoji: '📟' },
 		{ id: 'catppuccin', label: 'Catppuccin', emoji: '🐈' },
 		{ id: 'cerberus', label: 'Cerberus', emoji: '🐺' },
 		{ id: 'concord', label: 'Concord', emoji: '🤖' },
