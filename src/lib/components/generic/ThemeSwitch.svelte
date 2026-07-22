@@ -1,14 +1,19 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
+	import { onMount } from 'svelte';
 	import { Palette } from 'lucide-svelte';
 	import { Popover, Portal } from '@skeletonlabs/skeleton-svelte';
 
+	let { defaultTheme = 'mistahuman-theme' }: { defaultTheme?: string } = $props();
+
 	const themes = [
-		{ id: 'mistahuman-theme', label: 'Mistahuman', emoji: '🧑‍💻' },
+		{ id: 'mistahuman-theme', label: 'Mistahuman', emoji: '🕹️' },
+		{ id: 'terracotta-theme', label: 'Terracotta', emoji: '🏺' },
+		{ id: 'phosphor-theme', label: 'Phosphor', emoji: '📟' },
 		{ id: 'catppuccin', label: 'Catppuccin', emoji: '🐈' },
 		{ id: 'cerberus', label: 'Cerberus', emoji: '🐺' },
 		{ id: 'concord', label: 'Concord', emoji: '🤖' },
 		{ id: 'crimson', label: 'Crimson', emoji: '🔴' },
+		{ id: 'dracula', label: 'Dracula', emoji: '🧛' },
 		{ id: 'fennec', label: 'Fennec', emoji: '🦊' },
 		{ id: 'hamlindigo', label: 'Hamlindigo', emoji: '👔' },
 		{ id: 'legacy', label: 'Legacy', emoji: '📜' },
@@ -21,6 +26,7 @@
 		{ id: 'reign', label: 'Reign', emoji: '👑' },
 		{ id: 'rocket', label: 'Rocket', emoji: '🚀' },
 		{ id: 'rose', label: 'Rose', emoji: '🌹' },
+		{ id: 'rosepine', label: 'Rosé Pine', emoji: '🪻' },
 		{ id: 'sahara', label: 'Sahara', emoji: '🏜️' },
 		{ id: 'seafoam', label: 'Seafoam', emoji: '🌊' },
 		{ id: 'terminus', label: 'Terminus', emoji: '💻' },
@@ -29,14 +35,14 @@
 		{ id: 'wintry', label: 'Wintry', emoji: '❄️' }
 	];
 
-	let current = $state(
-		browser
-			? (document.documentElement.getAttribute('data-theme') ?? 'mistahuman-theme')
-			: 'mistahuman-theme'
-	);
+	// Rendered on the server first, so read the live theme only once mounted.
+	let current = $state('');
+
+	onMount(() => {
+		current = document.documentElement.getAttribute('data-theme') ?? defaultTheme;
+	});
 
 	function setTheme(id: string) {
-		if (!browser) return;
 		document.documentElement.setAttribute('data-theme', id);
 		localStorage.setItem('theme', id);
 		current = id;
