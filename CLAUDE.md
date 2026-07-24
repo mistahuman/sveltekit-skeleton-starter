@@ -1,3 +1,44 @@
+# sveltekit-skeleton-starter — Claude Code context
+
+Base template for SvelteKit + Skeleton web apps. Downstream: `mistatools`,
+`svelte-kitty-translate`, `forge-string`.
+
+## Commands
+
+```bash
+npm run dev       # dev server
+npm run build     # production build
+npm run preview   # preview the build
+npm run check     # svelte-check
+npm run check:watch
+npm run format    # Prettier write
+```
+
+## Dual adapter strategy
+
+The build target switches on the `DOCKER_BUILD` environment variable:
+
+| Context | Adapter | Output |
+|---|---|---|
+| Default | `adapter-static` | static files for GitHub Pages |
+| `DOCKER_BUILD=true` | `adapter-node` | Node server on port 3000 |
+
+GitHub Pages deploys automatically via the included Actions workflow on push to
+`main`. Inside
+[fullstack-webapp-starter](https://github.com/mistahuman/fullstack-webapp-starter),
+`ui/Dockerfile` sets `DOCKER_BUILD=true` at build time to get the Node server instead.
+
+## Recreating this template from scratch
+
+```sh
+npx sv@0.15.2 create --template minimal --types ts \
+  --add prettier eslint tailwindcss="plugins:typography,forms" \
+  sveltekit-adapter="adapter:auto" mcp="ide:claude-code+setup:remote" \
+  --install npm sveltekit-skeleton-starter
+```
+
+---
+
 ## Project Configuration
 
 - **Language**: TypeScript
