@@ -14,6 +14,17 @@ npm run check:watch
 npm run format    # Prettier write
 ```
 
+## Skeleton docs
+
+Skeleton has no official MCP server (community ones exist and are deliberately not used).
+Before writing or changing Skeleton components or classes, read the official LLM docs:
+
+- Index: `https://www.skeleton.dev/llms.txt` (~8 KB). Use the **Svelte** section.
+- Then fetch only the page you need, e.g.
+  `https://www.skeleton.dev/docs/svelte/framework-components/popover.md`.
+- Avoid `llms-svelte.txt` (~720 KB) and `llms-full.txt` (~1.2 MB) unless a broad search
+  is really needed.
+
 ## Dual adapter strategy
 
 The build target switches on the `DOCKER_BUILD` environment variable:
